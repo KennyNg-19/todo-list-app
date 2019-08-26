@@ -70,7 +70,7 @@ app.get("/", function(req, res) {
       res.redirect("/")
     } else {
       res.render("list", {
-        listTitle: "Today",
+        listTitle: day,
         newListItems: foundItems
       });
     }
