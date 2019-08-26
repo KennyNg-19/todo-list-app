@@ -1,4 +1,4 @@
 # todo-list-app
-WebDev Bootcamp mini-project
+<WebDev Bootcamp 2019> mini-project
 
-access https://thawing-sands-70538.herokuapp.com/
+demo https://thawing-sands-70538.herokuapp.com/
