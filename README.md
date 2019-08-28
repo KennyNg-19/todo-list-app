@@ -1,4 +1,4 @@
 # todo-list-app
 <WebDev Bootcamp 2019> mini-project
 
-demo https://thawing-sands-70538.herokuapp.com/
+demo https://mini-todo-list2019.herokuapp.com/
