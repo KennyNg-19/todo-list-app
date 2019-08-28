@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
+
 mongoose.connect('mongodb+srv://admin-kenny:1@cluster0-7phca.mongodb.net/todolistDB', {
   useNewUrlParser: true
 });
@@ -24,7 +25,7 @@ mongoose.connect('mongodb+srv://admin-kenny:1@cluster0-7phca.mongodb.net/todolis
 // const workItems = [];
 
 const itemSchema = {
-  name: String,
+  name: String
 }
 // 1. Item collection---for the HOME page's items
 const Item = mongoose.model("Item", itemSchema)
