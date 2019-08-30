@@ -152,6 +152,7 @@ app.post("/delete", function(req, res) {
     res.redirect("/")
   }else{
     // cannot done only with mongoose operator!! needs mongodb $ operators
+    // 或者用PUT + method override
     List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}},
                           function(err, foundList){
       if(!err) res.redirect('/'+listName)
