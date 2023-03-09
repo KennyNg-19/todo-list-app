@@ -2,15 +2,15 @@
  * @Author: YuhaoWU
  * @Date: 2020-02-07 16:36:40
  * @LastEditors: YuhaoWU
- * @LastEditTime: 2023-02-08 01:05:09
+ * @LastEditTime: 2023-03-10 01:56:16
  * @Description:
 -->
 
 # todo-list-app
 
-<WebDev Bootcamp 2019> mini-project
+<WebDev Bootcamp 2019> course mini-project
 
-[demo](https://mini-todo-list2019.herokuapp.com/)
+[demo](https://todo-4mb9.onrender.com)
 
 ## NPM and NodeJS
 
