@@ -2,7 +2,7 @@
  * @Author: YuhaoWU
  * @Date: 2020-02-07 16:36:40
  * @LastEditors: YuhaoWU
- * @LastEditTime: 2023-03-10 11:57:10
+ * @LastEditTime: 2023-03-12 14:54:04
  * @Description:
 -->
 
@@ -32,6 +32,12 @@ npm 是 NodeJS 的包管理器(NodeJS package manager)，一般是随同 NodeJS 
 
 route 路由，在 web 开发中，“route”是**指根据 url， 分配到对应的处理程序**。 就是一个**路径的解析，根据客户端提交的路径，将请求解析到相应的控制器上**。
 a mechanism where **HTTP requests are routed to the code that handles them**. To put simply, in the Router you **determine what should happen when a user visits a certain page**.
+
+## MongoDB 和 Mongoose 5.X 包
+
+相对于 SQL 数据库，NoSQL 的**Collection 可以对应到表（table），Document 可以对应到行（row）或记录（record）**
+
+Mongoose 5.X 不要轻易升级到 6，不然要大改
 
 ## Core knowledge points: RESTful 7 routes
 

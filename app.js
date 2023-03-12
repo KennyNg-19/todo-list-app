@@ -15,12 +15,15 @@ app.use(
     extended: true,
   })
 );
+// server local path as 'public'
 app.use(express.static("public"));
 
+mongoose.set("strictQuery", false); // for mongoose 7+
 mongoose.connect(
   "mongodb+srv://admin-kenny:1@cluster0-7phca.mongodb.net/todolistDB",
   {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   }
 );
 
@@ -30,6 +33,7 @@ mongoose.connect(
 const itemSchema = {
   name: String,
 };
+// Collection可以对应到表（table），Document可以对应到行（row）或记录（record）
 // 1. Item collection---for the HOME page's items
 const Item = mongoose.model("Item", itemSchema);
 // replace the items array without DBs
@@ -44,11 +48,12 @@ const item3 = new Item({
 });
 const defaultItems = [item1, item2, item3];
 
-// advanced list's schema: embedded items
+// advanced List's schema: embedded items
 const listSchema = {
   name: String,
   items: [itemSchema],
 };
+
 // 2. List collection---for the custom pages(except the home)
 // One doc in List , One custom page
 const List = mongoose.model("List", listSchema);
@@ -64,6 +69,13 @@ app.get("/", function (req, res) {
         if (err) console.log(err);
         else console.log("Successfully init");
       });
+      // Item.find({}).then((post) => {
+      //   // empty collection: 需initialize
+      //   if (post.foundItems.length === 0) {
+      //     Item.insertMany(defaultItems, function (err) {
+      //       if (err) console.log(err);
+      //       else console.log("Successfully init");
+      //     });
 
       // Insert 完毕，别忘了再次转到"/"，第二次check才能render 显示成功！！
       res.redirect("/");
