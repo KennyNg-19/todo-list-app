@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const date = require(__dirname + "/date.js");
+const date = require(__dirname + "/date.js"); // 自定义的Module date.js, 和py一样 文件名为包名！
 const _ = require("lodash");
 
 const app = express();

@@ -2,7 +2,7 @@
  * @Author: YuhaoWU
  * @Date: 2020-02-07 16:36:40
  * @LastEditors: YuhaoWU
- * @LastEditTime: 2023-03-20 19:28:33
+ * @LastEditTime: 2023-03-20 19:41:00
  * @Description:
 -->
 
@@ -60,7 +60,15 @@ EJS 用起来非常简单, 你只要像之前写 HTML 代码一样去写就好�
 
 大多数情况下, 我们需要使用能够输出原始内容的标签 <%- 在 include 指令上，避免对输出的 HTML 代码做转义处理。
 
-## node module 怎么构建的？
+## node module 怎么构建的？和 py 一样 文件名为包名！
+
+node module(.js)，也是很多 npm module 的构建原理：但和 py 不一样的是，需要用 JS 的`module.exports`去设置 导出变量/函数！！
+
+1 个 module 可以设置多个 `exports.var/func` ,是相当于当别的文件引用该 module 时，可以通过 `exports` 后面跟的变量/函数名，访问 module 内部对应的变量/函数！！！而 JS 的函数也是对象，所以可以 console.log 输出来看
+
+看我们的`date.js`，新建的 module 得设置导出值！！`module.exports` kw 代表当前 module object(相当于 py 的 self), 后面用"."+自定义变量名(是在 required 的文件里，使用该这些引入函数/变量的名字), 指向通过`= module 内的变量/函数`
+
+注意：require 函数返回 .js 的 module.exports 对象！！所以 const express = require 是指向 express.js 所在的 module.exports！
 
 ## MongoDB 和 Mongoose 5.X 包
 
