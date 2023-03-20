@@ -8,15 +8,25 @@ const _ = require("lodash");
 
 const app = express();
 
+// 设置EJS模板
 app.set("view engine", "ejs");
+
+// server local path: 'public'
+app.use(express.static("public"));
 
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
-// server local path as 'public'
-app.use(express.static("public"));
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function () {
+  console.log("Server started on port 3000");
+});
 
 mongoose.set("strictQuery", false); // for mongoose 7+
 mongoose.connect(
@@ -34,7 +44,7 @@ const itemSchema = {
   name: String,
 };
 // Collection可以对应到表（table），Document可以对应到行（row）或记录（record）
-// 1. Item collection---for the HOME page's items
+// 1. Item collection(table) -- for the items
 const Item = mongoose.model("Item", itemSchema);
 // replace the items array without DBs
 const item1 = new Item({
@@ -44,7 +54,7 @@ const item2 = new Item({
   name: "Hit the + button to add a new item",
 });
 const item3 = new Item({
-  name: "<-- Hit this to delete",
+  name: "<-- Tick this to delete",
 });
 const defaultItems = [item1, item2, item3];
 
@@ -58,6 +68,7 @@ const listSchema = {
 // One doc in List , One custom page
 const List = mongoose.model("List", listSchema);
 
+// main page: default TODO list
 app.get("/", function (req, res) {
   const day = date.getDate();
 
@@ -77,7 +88,7 @@ app.get("/", function (req, res) {
       //       else console.log("Successfully init");
       //     });
 
-      // Insert 完毕，别忘了再次转到"/"，第二次check才能render 显示成功！！
+      // Insert 完毕，别忘了再次转到"/"，重新render显示成功, ！！
       res.redirect("/");
     } else {
       res.render("list", {
@@ -90,7 +101,7 @@ app.get("/", function (req, res) {
   });
 });
 
-// 取代/work，通用custom型
+// 除了/的default TODO list 通用custom型
 // app.get("/work", function(req,res){
 //   res.render("list", {listTitle: "Work List", newListItems: workItems});
 // });
@@ -172,12 +183,4 @@ app.post("/delete", function (req, res) {
       }
     );
   }
-});
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-app.listen(port, function () {
-  console.log("Server started on port 3000");
 });
