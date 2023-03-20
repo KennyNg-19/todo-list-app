@@ -2,7 +2,7 @@
  * @Author: YuhaoWU
  * @Date: 2020-02-07 16:36:40
  * @LastEditors: YuhaoWU
- * @LastEditTime: 2023-03-20 19:41:00
+ * @LastEditTime: 2023-03-20 19:44:34
  * @Description:
 -->
 
@@ -28,16 +28,16 @@ npm 是 NodeJS 的包管理器(NodeJS package manager)，一般是随同 NodeJS 
 注意：
 如果您想更新到 XXX modules 的最新**主版本**（例如从 5.x.x 更新到 6.x.x），则需要**手动更新 package.json 文件中的版本范围，然后再运行 npm update 命令**，才能生效。
 
-## Route: 不只是 path 变量
+## 概念科普 Route: 不只是 path 变量
 
 route 路由，在 web 开发中，“route”是**指根据 url， 分配到对应的处理程序**。 就是一个**路径的解析，根据客户端提交的路径，将请求解析到相应的控制器上**。
 a mechanism where **HTTP requests are routed to the code that handles them**. To put simply, in the Router you **determine what should happen when a user visits a certain page**.
 
-## bodyParser: 解析 request 的包
+## 包 bodyParser: 解析 request 的包
 
 一个 HTTP 请求体解析中间件 ，使用这个模块可以解析 JSON、Raw、文本、URL-encoded 格式的请求体，Express 框架中就是使用这个模块做为**请求体**解析中间件。
 
-## EJS(Embedded JavaScript templating): 一套简单的模板语言，只是普通的 JavaScript 代码而已 - 在 HTML 文件内使用 JavaScript 代码语法来进行 HTML 渲染
+## 包 EJS(Embedded JavaScript templating): 一套简单的模板语言，只是普通的 JavaScript 代码而已 - 在 HTML 文件内使用 JavaScript 代码语法来进行 HTML 渲染
 
 EJS: embedded javascript templating 是 templating language， to **generate HTML markup with plain JS**.
 Node.js 支持模板引擎有非常多, 之所以选择讲 EJS, 是因为个人觉得它上手最快, 可以让你**在不破坏 HTML 文档结构的情况下, 直接在标签内书写 JavaScript 代码**. 对于前端开发人员来说学习成本很低.
@@ -59,6 +59,8 @@ EJS 用起来非常简单, 你只要像之前写 HTML 代码一样去写就好�
 例如，如果我有 "./index.ejs" 和 "./header.ejs" 两个模板文件，我可以通过 <%- include('./header'); %> 代码让 header.ejs 被 index.ejs 引入.
 
 大多数情况下, 我们需要使用能够输出原始内容的标签 <%- 在 include 指令上，避免对输出的 HTML 代码做转义处理。
+
+这样一来，to-do 情况简单 **页面少**，有了 ejs 组合的网页，我们可以移除多余的 index.html
 
 ## node module 怎么构建的？和 py 一样 文件名为包名！
 
